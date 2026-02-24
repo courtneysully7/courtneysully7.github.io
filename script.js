@@ -6,7 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
     return {
       title: card.querySelector("h2").textContent,
       rating: card.querySelector(".rating").textContent,
-      fullReview: card.querySelector(".review-snippet").textContent.trim()
+      fullReview: card.querySelector(".review-snippet").textContent.trim(),
+      img: card.querySelector("img").src
     };
   });
 
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const modalTitle = document.getElementById("modal-title");
   const modalRating = document.getElementById("modal-rating");
   const modalReview = document.getElementById("modal-review");
+  const modalImg = document.getElementById("modal-img");
   const closeBtn = document.querySelector(".close");
 
   // Navigation
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modalTitle.textContent = reviewsData[index].title;
     modalRating.textContent = reviewsData[index].rating;
     modalReview.textContent = reviewsData[index].fullReview;
+    modalImg.src = reviewsData[index].img;
     modal.style.display = "flex";
   }
 
@@ -59,5 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
       closeModal();
     }
   });
+  
+    // Add ESC key support for closing modal
+    window.addEventListener('keydown', function(event) {
+      const modal = document.getElementById('modal');
+      if (event.key === 'Escape' && modal && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+      }
+    });
 
 });
