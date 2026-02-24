@@ -1,3 +1,37 @@
+/* PROFILE LINKS */
+.profile-links {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--card);
+  border: 1px solid var(--accent-purple);
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.7rem 1.3rem;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 1.05rem;
+  transition: background 0.2s, box-shadow 0.2s, border 0.2s;
+  box-shadow: 0 2px 10px rgba(110, 75, 158, 0.07);
+}
+
+.profile-link:hover {
+  background: var(--accent-purple);
+  color: #fff;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 16px rgba(110, 75, 158, 0.18);
+}
+
+.profile-link .logo {
+  display: flex;
+  align-items: center;
+}
 :root {
   --bg: #0d0c14;
   --card: #1a1625;
@@ -39,7 +73,10 @@ main section {
 
 /* About stays block when active */
 #about.active {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
 }
 
 /* HEADER */
