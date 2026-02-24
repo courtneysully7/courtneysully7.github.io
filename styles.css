@@ -18,6 +18,15 @@ body {
   color: var(--text);
 }
 
+/* Hide sections by default */
+section {
+  display: none;
+}
+
+section.active {
+  display: block;
+}
+
 /* HEADER */
 
 header {
@@ -41,7 +50,7 @@ header {
   font-size: 0.9rem;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav button {
   background: transparent;
@@ -73,7 +82,6 @@ main {
   gap: 2rem;
 }
 
-/* Desktop: 2 wide */
 @media (min-width: 900px) {
   .review-grid {
     grid-template-columns: 1fr 1fr;
@@ -90,7 +98,6 @@ main {
   border-radius: 40px;
   cursor: pointer;
   transition: 0.3s ease;
-  position: relative;
 }
 
 .review-card:hover {
@@ -126,7 +133,6 @@ main {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1000;
   inset: 0;
   background: rgba(5, 3, 10, 0.85);
   justify-content: center;
@@ -140,8 +146,8 @@ main {
   max-width: 600px;
   border-radius: 20px;
   position: relative;
-  animation: fadeIn 0.25s ease;
   box-shadow: 0 0 40px rgba(110, 75, 158, 0.4);
+  animation: fadeIn 0.25s ease;
 }
 
 .close {
@@ -169,7 +175,6 @@ footer {
 /* MOBILE */
 
 @media (max-width: 768px) {
-
   .header-inner {
     flex-direction: column;
     align-items: flex-start;

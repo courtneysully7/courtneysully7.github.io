@@ -17,8 +17,8 @@
       </div>
 
       <nav>
-        <button onclick="showSection('reviews')">Reviews</button>
-        <button onclick="showSection('about')">About</button>
+        <button id="nav-reviews">Reviews</button>
+        <button id="nav-about">About</button>
       </nav>
     </div>
   </header>
@@ -27,7 +27,7 @@
     <!-- REVIEWS -->
     <section id="reviews" class="active review-grid">
 
-      <div class="review-card" onclick="openModal(0)">
+      <div class="review-card" data-index="0">
         <img src="https://via.placeholder.com/150x220" alt="Book Cover">
         <div class="review-content">
           <h2>The Midnight Library</h2>
@@ -36,7 +36,7 @@
         </div>
       </div>
 
-      <div class="review-card" onclick="openModal(1)">
+      <div class="review-card" data-index="1">
         <img src="https://via.placeholder.com/150x220" alt="Book Cover">
         <div class="review-content">
           <h2>The Silent Patient</h2>
@@ -65,9 +65,9 @@
   </main>
 
   <!-- MODAL -->
-  <div id="modal" class="modal" onclick="outsideClick(event)">
+  <div id="modal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
+      <span class="close">&times;</span>
       <h2 id="modal-title"></h2>
       <div id="modal-rating" class="rating"></div>
       <p id="modal-review"></p>

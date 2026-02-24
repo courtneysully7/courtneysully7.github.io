@@ -1,36 +1,66 @@
-const reviews = [
-  {
-    title: "The Midnight Library",
-    rating: "⭐⭐⭐⭐⭐",
-    fullReview: "This novel beautifully explores regret and possibility. The emotional depth and philosophical undertones make it both comforting and thought-provoking. A must-read for anyone questioning their life choices."
-  },
-  {
-    title: "The Silent Patient",
-    rating: "⭐⭐⭐⭐",
-    fullReview: "A tense psychological thriller that slowly builds toward a shocking reveal. The pacing keeps you engaged and the atmosphere is deliciously unsettling."
-  }
-];
+document.addEventListener("DOMContentLoaded", function () {
 
-function openModal(index) {
-  document.getElementById("modal-title").innerText = reviews[index].title;
-  document.getElementById("modal-rating").innerText = reviews[index].rating;
-  document.getElementById("modal-review").innerText = reviews[index].fullReview;
-  document.getElementById("modal").style.display = "flex";
-}
+  const reviewsData = [
+    {
+      title: "The Midnight Library",
+      rating: "⭐⭐⭐⭐⭐",
+      fullReview: "A deeply introspective novel about the infinite possibilities of life. It blends melancholy and hope into something quietly magical."
+    },
+    {
+      title: "The Silent Patient",
+      rating: "⭐⭐⭐⭐",
+      fullReview: "A chilling psychological thriller that slowly tightens its grip. Smart pacing and a satisfying twist."
+    }
+  ];
 
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modal-title");
+  const modalRating = document.getElementById("modal-rating");
+  const modalReview = document.getElementById("modal-review");
+  const closeBtn = document.querySelector(".close");
 
-function outsideClick(event) {
-  if (event.target.id === "modal") {
-    closeModal();
-  }
-}
-
-function showSection(sectionId) {
-  document.querySelectorAll("section").forEach(section => {
-    section.classList.remove("active");
+  // Navigation
+  document.getElementById("nav-reviews").addEventListener("click", function () {
+    switchSection("reviews");
   });
-  document.getElementById(sectionId).classList.add("active");
-}
+
+  document.getElementById("nav-about").addEventListener("click", function () {
+    switchSection("about");
+  });
+
+  function switchSection(id) {
+    document.querySelectorAll("main section").forEach(section => {
+      section.classList.remove("active");
+    });
+    document.getElementById(id).classList.add("active");
+  }
+
+  // Review card clicks
+  document.querySelectorAll(".review-card").forEach(card => {
+    card.addEventListener("click", function () {
+      const index = this.getAttribute("data-index");
+      openModal(index);
+    });
+  });
+
+  function openModal(index) {
+    modalTitle.textContent = reviewsData[index].title;
+    modalRating.textContent = reviewsData[index].rating;
+    modalReview.textContent = reviewsData[index].fullReview;
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+
+  // Click outside modal to close
+  modal.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+});
