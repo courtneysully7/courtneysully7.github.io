@@ -1,17 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  const reviewsData = [
-    {
-      title: "The Midnight Library",
-      rating: "⭐⭐⭐⭐⭐",
-      fullReview: "A deeply introspective novel about the infinite possibilities of life. It blends melancholy and hope into something quietly magical."
-    },
-    {
-      title: "The Silent Patient",
-      rating: "⭐⭐⭐⭐",
-      fullReview: "A chilling psychological thriller that slowly tightens its grip. Smart pacing and a satisfying twist."
-    }
-  ];
+  // Get review data from DOM
+  const reviewCards = document.querySelectorAll(".review-card");
+  const reviewsData = Array.from(reviewCards).map(card => {
+    return {
+      title: card.querySelector("h2").textContent,
+      rating: card.querySelector(".rating").textContent,
+      fullReview: card.querySelector(".review-snippet").textContent.trim()
+    };
+  });
 
   const modal = document.getElementById("modal");
   const modalTitle = document.getElementById("modal-title");
