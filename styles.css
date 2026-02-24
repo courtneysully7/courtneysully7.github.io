@@ -24,6 +24,21 @@ section {
 }
 
 section.active {
+  display: grid;
+}
+
+/* Hide all sections */
+main section {
+  display: none;
+}
+
+/* Reviews stays grid when active */
+#reviews.active {
+  display: grid;
+}
+
+/* About stays block when active */
+#about.active {
   display: block;
 }
 
