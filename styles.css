@@ -1,9 +1,10 @@
 :root {
-  --bg: #0f1117;
-  --card: #1a1d26;
-  --accent: #7c5cff;
-  --text: #e4e6eb;
-  --muted: #9aa0a6;
+  --bg: #0d0c14;
+  --card: #1a1625;
+  --accent-purple: #6e4b9e;
+  --accent-orange: #c96f3b;
+  --text: #e8e4f0;
+  --muted: #a79dbb;
 }
 
 * {
@@ -13,94 +14,111 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: var(--bg);
+  background: radial-gradient(circle at top left, #151022, #0d0c14 60%);
   color: var(--text);
 }
 
+/* HEADER */
+
 header {
-  text-align: center;
-  padding: 2rem 1rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-h1 {
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand h1 {
   margin: 0;
 }
 
 .tagline {
+  margin: 0.3rem 0 0;
   color: var(--muted);
+  font-size: 0.9rem;
 }
 
-nav {
-  margin-top: 1rem;
-}
+/* NAVIGATION */
 
 nav button {
-  background: var(--accent);
-  border: none;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  margin: 0 0.5rem;
-  border-radius: 20px;
+  background: transparent;
+  border: 1px solid var(--accent-purple);
+  color: var(--text);
+  padding: 0.5rem 1.2rem;
+  margin-left: 0.8rem;
+  border-radius: 30px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 nav button:hover {
-  opacity: 0.8;
+  background: var(--accent-purple);
+  box-shadow: 0 0 12px rgba(110, 75, 158, 0.6);
 }
+
+/* MAIN */
 
 main {
   padding: 2rem;
 }
 
-section {
-  display: none;
+/* REVIEW GRID */
+
+.review-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
-section.active {
-  display: block;
+/* Desktop: 2 wide */
+@media (min-width: 900px) {
+  .review-grid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
+
+/* REVIEW CARD */
 
 .review-card {
   display: flex;
   gap: 1rem;
   background: var(--card);
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 30px 60px 40px 70px;
+  padding: 1.5rem;
+  border-radius: 40px;
   cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: 0.3s ease;
+  position: relative;
 }
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(124, 92, 255, 0.3);
+  box-shadow: 0 0 25px rgba(110, 75, 158, 0.3);
 }
 
 .review-card img {
   width: 120px;
-  border-radius: 12px;
+  border-radius: 10px;
 }
 
 .review-content h2 {
-  margin: 0;
+  margin-top: 0;
 }
 
 .rating {
-  color: gold;
+  color: var(--accent-orange);
   margin: 0.5rem 0;
 }
+
+/* ABOUT */
 
 .about-container {
   background: var(--card);
   padding: 2rem;
   border-radius: 40px;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  color: var(--muted);
+  max-width: 700px;
 }
 
 /* MODAL */
@@ -109,11 +127,8 @@ footer {
   display: none;
   position: fixed;
   z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
+  inset: 0;
+  background: rgba(5, 3, 10, 0.85);
   justify-content: center;
   align-items: center;
 }
@@ -125,25 +140,45 @@ footer {
   max-width: 600px;
   border-radius: 20px;
   position: relative;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.25s ease;
+  box-shadow: 0 0 40px rgba(110, 75, 158, 0.4);
 }
 
 .close {
   position: absolute;
   top: 10px;
-  right: 20px;
+  right: 18px;
   font-size: 24px;
   cursor: pointer;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
+  from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 /* MOBILE */
 
 @media (max-width: 768px) {
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 1rem;
+  }
+
   .review-card {
     flex-direction: column;
     align-items: center;

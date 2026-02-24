@@ -3,31 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Book Reviews</title>
+  <title>csully7 | Book Reviews</title>
   <link rel="stylesheet" href="styles.css" />
   <script defer src="script.js"></script>
 </head>
 <body>
 
   <header>
-    <h1>📚 Your Name</h1>
-    <p class="tagline">Book Reviews • NetGalley Reviewer • ARC Enthusiast</p>
-    <nav>
-      <button onclick="showSection('reviews')">Reviews</button>
-      <button onclick="showSection('about')">About Me</button>
-    </nav>
+    <div class="header-inner">
+      <div class="brand">
+        <h1>🔮 Courtney Sullivan</h1>
+        <p class="tagline">Book Reviews • NetGalley Reviewer • ARC Reader</p>
+      </div>
+
+      <nav>
+        <button onclick="showSection('reviews')">Reviews</button>
+        <button onclick="showSection('about')">About</button>
+      </nav>
+    </div>
   </header>
 
   <main>
-    <!-- REVIEWS SECTION -->
-    <section id="reviews" class="active">
+    <!-- REVIEWS -->
+    <section id="reviews" class="active review-grid">
 
       <div class="review-card" onclick="openModal(0)">
         <img src="https://via.placeholder.com/150x220" alt="Book Cover">
         <div class="review-content">
           <h2>The Midnight Library</h2>
           <div class="rating">⭐⭐⭐⭐⭐</div>
-          <p>A thoughtful exploration of regret, choices, and alternate lives...</p>
+          <p>A haunting exploration of regret, alternate lives, and second chances...</p>
         </div>
       </div>
 
@@ -36,24 +41,24 @@
         <div class="review-content">
           <h2>The Silent Patient</h2>
           <div class="rating">⭐⭐⭐⭐</div>
-          <p>A gripping psychological thriller with unexpected twists...</p>
+          <p>A tense psychological unraveling wrapped in silence and secrets...</p>
         </div>
       </div>
 
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- ABOUT -->
     <section id="about">
       <div class="about-container">
         <h2>About Me</h2>
         <p>
-          Hi! I'm an avid reader and passionate reviewer specializing in
-          contemporary fiction, thrillers, and fantasy. I provide thoughtful,
-          honest, and detailed reviews for every book I read.
+          I specialize in atmospheric fiction, psychological thrillers,
+          fantasy, and emotionally layered narratives. I provide thoughtful,
+          honest, and detailed reviews.
         </p>
         <p>
-          I actively review on NetGalley and Goodreads, and I am always excited
-          to collaborate with authors and publishers.
+          Active NetGalley reviewer seeking compelling stories and meaningful
+          collaborations with authors and publishers.
         </p>
       </div>
     </section>
@@ -68,10 +73,6 @@
       <p id="modal-review"></p>
     </div>
   </div>
-
-  <footer>
-    <p>© 2026 Your Name • NetGalley Reviewer</p>
-  </footer>
 
 </body>
 </html>
