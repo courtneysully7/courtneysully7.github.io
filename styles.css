@@ -15,11 +15,17 @@
 .modal-flex {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   .modal-flex {
     flex-direction: row !important;
     align-items: flex-start !important;
     justify-content: flex-start !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .modal-flex {
+    align-items: center;
   }
 }
 @media (max-width: 768px) {
@@ -92,7 +98,7 @@
 @media (min-width: 900px) {
   .profile-header {
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
   }
   .about-me-content {
     display: flex;
@@ -332,6 +338,7 @@ main {
 
 .review-card {
   display: flex;
+  align-items: center;
   gap: 1rem;
   background: var(--card);
   padding: 1.5rem;
@@ -416,6 +423,19 @@ main {
   position: relative;
   box-shadow: 0 0 40px rgba(110, 75, 158, 0.4);
   animation: fadeIn 0.25s ease;
+}
+
+@media (min-width: 1024px) {
+  .modal-content {
+    max-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
 }
 
 .close {
